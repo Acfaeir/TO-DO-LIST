@@ -1,0 +1,180 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f4f4f9, #e0e0f0);
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #007BFF;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+main {
+    width: 100%;
+    max-width: 600px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.form-tarefa {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.input-tarefa {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #007BFF;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-tarefa:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+.btn-inserir {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #007BFF, #0056b3);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-inserir:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+.btn-inserir:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 123, 255, 0.3);
+}
+
+.lista-tarefas {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.item-tarefa {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f9f9f9;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.item-tarefa:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.item-tarefa p {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #444;
+}
+
+.btn-deletar {
+    background: linear-gradient(135deg, #ff4d4d, #cc0000);
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-deletar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 77, 77, 0.3);
+}
+
+.btn-deletar:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(255, 77, 77, 0.3);
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+footer h4 {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #007BFF;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+
+    }
+
+    @keyframes fadeInSlideUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    /* Animação de saída (fade-out e slide-down) */
+    @keyframes fadeOutSlideDown {
+        from {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        to {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+    }
+    
+    /* Aplicar animação de entrada aos novos itens */
+    .item-tarefa {
+        animation: fadeInSlideUp 0.5s ease-out;
+    }
+    
+    /* Classe para animação de saída */
+    .item-tarefa.removing {
+        animation: fadeOutSlideDown 0.5s ease-out;
+        animation-fill-mode: forwards; /* Mantém o estado final da animação */
+    }
+    

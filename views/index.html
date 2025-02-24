@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/public/style.css"> <!-- Inclui o arquivo CSS da pasta "public" -->
+        <title>Lista de Tarefas | Projeto 1</title> <!-- Define o título da página -->
+    </head>
+    <body>
+        <header>
+            <h1>Lista de Tarefas</h1> <!-- Cabeçalho principal -->
+        </header>
+
+        <main>
+            <section class="tarefas"> <!-- Seção que exibe as tarefas -->
+
+                <!-- Formulário para adicionar tarefas -->
+                <form method="post" class="form-tarefa">
+                    <input type="text" name="tarefas" placeholder="Digite uma tarefa" class="input-tarefa"> 
+                    <input type="submit" name="acao" value="inserir" class="btn-inserir"> <!-- Botão para enviar o formulário -->
+                </form>
+
+                <!-- Div para exibir a lista de tarefas -->
+                <div class="tarefa">
+                    <% for(let i = 0; i < tarefasList.length; i++) { %> <!-- Loop para renderizar cada tarefa -->
+                    <div class="item-tarefa">
+                        <p><%= tarefasList[i] %></p> <!-- Exibe o nome da tarefa -->
+                        <a href="/deletar/<%= i %>" class="btn-deletar">X</a> <!-- Link para deletar a tarefa -->
+                    </div>
+                    <% } %>
+                </div>
+
+            </section>
+        </main>
+
+        <footer>
+            <p>Lista de Tarefas 2025</p>
+            <h4>BY: Alan Cefair</h4> 
+        </footer>
+
+        <!-- Script para exibir alertas -->
+        <script>
+            const mensagem = "<%= mensagem || '' %>"; // Captura a mensagem passada pelo servidor
+            if (mensagem) { // Se a mensagem não estiver vazia
+                alert(mensagem); // Exibe um alerta com a mensagem
+            }
+        </script>
+    </body>
+</html>
